@@ -1,10 +1,25 @@
 cells:
+  - kind: 1
+    value: "## Introduction to SELECT Statement"
+    languageId: markdown
+  - kind: 2
+    value: ""
+    languageId: oracle-sql
+  - kind: 2
+    value: ""
+    languageId: oracle-sql
+  - kind: 2
+    value: ""
+    languageId: oracle-sql
+  - kind: 2
+    value: ""
+    languageId: oracle-sql
   - kind: 2
     value: |
       SELECT
       name
       FROM
-      custcmers;
+      customers
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -26,13 +41,9 @@ cells:
       FROM
       customers;
     languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-      UPPER( 'This is a string')
-      From
-      what_table;
-    languageId: oracle-sql
+  - kind: 1
+    value: "## Oracle Dual Table"
+    languageId: markdown
   - kind: 2
     value: SELECT * FROM dual;
     languageId: oracle-sql
@@ -43,27 +54,22 @@ cells:
       FROM
       dual;
     languageId: oracle-sql
+  - kind: 1
+    value: >+
+      #### Besides calling built-in function, you can use expressions in the
+      SELECT clause of a query that accesses the DUAL table:
+
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
-      (10 + s)/2
+      (10 + 5)/2
       FROM
       dual;
     languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-      column_1,
-      column_2,
-      column_3,
-      ...
-      FROM
-      table_nane
-      ORDER BY
-      column_1 [ASC I DESCJ [NULLS FIRST I NULLS LAST],
-      column_1 [ASC I DESC] [NULLS FIRST I NULLS LAST],
-      ...
-    languageId: oracle-sql
+  - kind: 1
+    value: "## Introduction to Oracle ORDER BY clause"
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
@@ -83,12 +89,6 @@ cells:
       customers
       ORDER BY
       name ASC;
-    languageId: oracle-sql
-  - kind: 2
-    value: ORDER BY name ASC
-    languageId: oracle-sql
-  - kind: 2
-    value: ORDER BY name
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -116,7 +116,7 @@ cells:
     value: |
       SELECT
          name,
-         credi_limit
+         credit_limit
       FROM
          customers
       ORDER BY
@@ -138,7 +138,7 @@ cells:
   - kind: 2
     value: |
       SELECT
-          cenmtry_id,
+          country_id,
       city,
       state
       FROM
@@ -153,7 +153,7 @@ cells:
          city,
          state
       FROM
-         locatims
+         locations
       ORDER BY
          state
       ASC NULLS LAST;
@@ -166,7 +166,7 @@ cells:
       FROM
            customers
       ORDER BY
-      UPPER(name),
+      UPPER(name)
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -180,20 +180,9 @@ cells:
       ORDER BY
           order_date DESC;
     languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT DISTINCT colunn_l
-      FROM table;
-    languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-          DISTINCT column_1,
-      column_2,
-      column_3
-      FROM
-      table_name;
-    languageId: oracle-sql
+  - kind: 1
+    value: "## Introduction to Oracle SELECT DISTINCT statement"
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
@@ -231,17 +220,9 @@ cells:
       ORDER BY
            state NULLS FIRST;
     languageId: oracle-sql
-  - kind: 2
-    value: |
-      SELECT
-           select_list
-      FROM
-           table_name
-      WHERE
-           search_condition
-      ORDER BY
-      sort_expression;
-    languageId: oracle-sql
+  - kind: 1
+    value: "## Selecting rows by using a simple equality operator"
+    languageId: markdown
   - kind: 2
     value: |
       SELECT
@@ -252,7 +233,7 @@ cells:
        From
           products
       WHERE
-          product_name = 'Kingstom';
+          product_name = 'Kingston';
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -286,11 +267,6 @@ cells:
             list_price BETWEEN 650 AND 680
       ORDER BY
             list_price;
-    languageId: oracle-sql
-  - kind: 2
-    value: |
-      list_price BETWEEN 650 AND 680
-      list_price 650 ANO list_price <= 680
     languageId: oracle-sql
   - kind: 2
     value: |
@@ -331,12 +307,17 @@ cells:
            first_name;
     languageId: oracle-sql
   - kind: 2
-    value: |
-      SELECT
-            Istprc,
-            prdnm
+    value: "SELECT
+
+      \      Istprc,
+
+      \      prdnm
+
       FROM
-         long_table_name;
+
+      \   long_table_name;
+
+      \  "
     languageId: oracle-sql
   - kind: 2
     value: |

@@ -3,5 +3,8 @@ cells:
     value: select * from dual;
     languageId: oracle-sql
   - kind: 2
+    value: ""
+    languageId: oracle-sql
+  - kind: 2
     value: select * from customers;
     languageId: oracle-sql

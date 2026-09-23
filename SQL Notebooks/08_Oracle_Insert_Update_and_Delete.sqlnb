@@ -65,15 +65,15 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      INSERT INTO sales (custoner_id, product_id, order_date,total)
+      INSERT INTO sales (customer_id, product_id, order_date,total)
       SELECT customer_id,
       product_id,
       order_date,
       SUM(quantity * unit_price) amount
       FROM orders
       INNER JOIN order_items USING(order_id)
-      MIERE status = 'Shipped '
-      GROUP BY custoner_id,
+      WHERE status = 'Shipped '
+      GROUP BY customer_id,
       Product_id,
       order_date;
     languageId: oracle-sql
@@ -96,13 +96,27 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
-      INSERT INTO sales_2017
+      
       SELECT customer_id,
-      product_id ,
-      order_date,
+             product_id ,
+             order_date,
       SUM(quantity * unit_price) amount
       FROM orders
-      INNER JOIN order_itens USING(order_id)
+      INNER JOIN order_items USING(order_id)
+      WHERE status = 'Shipped' AND EXTRACT(year from order_date) = 2017
+      GROUP BY customer_id,
+      product_id,
+      order_date;
+    languageId: oracle-sql
+  - kind: 2
+    value: |
+      INSERT INTO sales_2017
+      SELECT customer_id,
+             product_id ,
+             order_date,
+      SUM(quantity * unit_price) amount
+      FROM orders
+      INNER JOIN order_items USING(order_id)
       WHERE status = 'Shipped' AND EXTRACT(year from order_date) = 2017
       GROUP BY customer_id,
       product_id,
@@ -177,10 +191,19 @@ cells:
     languageId: oracle-sql
   - kind: 2
     value: |
+      UPDATE parts
+      SET cost = 130
+      WHERE part_id = 1;
+    languageId: oracle-sql
+  - kind: 2
+    value: ""
+    languageId: oracle-sql
+  - kind: 2
+    value: |
       UPDATE
       parts
       SET
-      cost =130
+      cost = 130
       WHERE
       part_id = 1;
     languageId: oracle-sql
@@ -189,7 +212,7 @@ cells:
       SELECT
       *
       FROM
-      parts
+       parts
       WHERE
       part_id = 1;
     languageId: oracle-sql
@@ -201,7 +224,7 @@ cells:
       lead_time = 30,
       cost = 120,
       status = 1
-      WHERE
+      WHERE  
       part_id = 5;
     languageId: oracle-sql
   - kind: 2
@@ -239,9 +262,9 @@ cells:
   - kind: 2
     value: |
       DELETE
-      FROM
+       FROM
       sales
-      WHERE
+       WHERE
       order_id = 1
       AND item_id =1;
     languageId: oracle-sql
